@@ -1,0 +1,182 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back02"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Informe a quantia de crédito para adicionar"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:id="@+id/qtdeCredito"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forma de pagamento"
+        android:layout_below="@+id/qtdeCredito"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/txtPagamento"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPagamento"
+        android:layout_marginTop="15dp"
+        android:id="@+id/radioGroupPagamento">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Boleto"
+            android:id="@+id/radioBoleto"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cartão de crédito"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:checked="true"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cartões aceito"
+        android:layout_below="@+id/radioGroupPagamento"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/cartaoAceito"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/visa"
+        android:layout_below="@id/cartaoAceito"
+        android:id="@+id/visa"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="12dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/master"
+        android:layout_below="@id/cartaoAceito"
+        android:id="@+id/master"
+        android:layout_toRightOf="@+id/visa"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/elo"
+        android:layout_below="@id/cartaoAceito"
+        android:id="@+id/elo"
+        android:layout_toRightOf="@+id/master"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/american"
+        android:layout_below="@id/cartaoAceito"
+        android:id="@+id/american"
+        android:layout_toRightOf="@+id/elo"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hiper"
+        android:layout_below="@id/cartaoAceito"
+        android:id="@+id/hiper"
+        android:layout_toRightOf="@+id/american"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informações do cartão de crédito"
+        android:layout_below="@+id/visa"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/infoCartao"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Número do cartão de crédito"
+        android:layout_below="@+id/infoCartao"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:id="@+id/numCartao"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Nome impresso no cartão"
+        android:layout_below="@+id/numCartao"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:id="@+id/nomeCartao"/>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Data vencimento"
+        android:layout_below="@+id/nomeCartao"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="20dp"
+        android:id="@+id/dtVencimento" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Código segurança"
+        android:layout_below="@+id/nomeCartao"
+        android:layout_toRightOf="@+id/dtVencimento"
+        android:layout_marginLeft="5dp"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:id="@+id/cdSeguranca"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Efetuar Pagamento"
+        android:layout_below="@+id/cdSeguranca"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:onClick="efetuarPagamento"/>
+
+
+</RelativeLayout>

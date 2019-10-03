@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LINCE</string>
+    <string name="digite_o_usuario">Digite o usuário</string>
+    <string name="digite_a_senha">Digite a senha</string>
+    <string name="login">Login</string>
+    <string name="saldo">Saldo</string>
+</resources>

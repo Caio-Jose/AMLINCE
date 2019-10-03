@@ -1,0 +1,80 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back02"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Saldo: R$ 100"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:alpha="0.9"
+        android:padding="30dp"
+        android:id="@+id/saldo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Aproxime o smartphone no sensor"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:layout_below="@+id/saldo"
+        android:alpha="0.8"/>
+
+    <ImageView
+        android:layout_width="363dp"
+        android:layout_height="301dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/bilhete"
+        android:id="@+id/bilhete"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Adicionar crédito"
+        android:layout_below="@+id/bilhete"
+        android:layout_centerHorizontal="true"
+        android:onClick="adicionarCredito"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Braufagélio Junior"
+        android:textSize="22sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="150dp"
+        android:textColor="#FFF"
+        android:id="@+id/nameUser"/>
+
+    <ImageView
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/user" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/off"
+        android:layout_toRightOf="@+id/nameUser"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:onClick="sair"
+        android:layout_marginBottom="12dp"/>
+
+</RelativeLayout>
