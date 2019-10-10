@@ -113,4 +113,33 @@ public class UsuarioDB extends SQLiteOpenHelper {
 
         return usuarios;
     }
+
+    public Usuario findByUsuarioSenha(String username, String senha) {
+
+        String sql = "SELECT * FROM " + TB_USUARIO + " WHERE id = ?";
+        String[] selectionArgs = new String[] { "" + username, "" + senha };
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(
+                TB_USUARIO,
+                new String[] {"id", "nome", "email","senha","bilheteId","admin"},
+                null,
+                selectionArgs,
+                null,
+                null,
+                "nome"
+        );
+        cursor.moveToFirst();
+        Usuario usuario = new Usuario();
+
+        do {
+            usuario.setId( cursor.getInt( 0 )  );
+            usuario.setNome( cursor.getString( 1 ));
+            usuario.setEmail( cursor.getString( 2 ));
+            usuario.setSenha(cursor.getString(3));
+            usuario.setBilhete(bilheteDB.buscar( cursor.getInt( 4 )));
+            usuario.setAdmin(cursor.getInt(5)==1 ? true : false);
+            return usuario;
+        } while( cursor.moveToNext() );
+
+    }
 }

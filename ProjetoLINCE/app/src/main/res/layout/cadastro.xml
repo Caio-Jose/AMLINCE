@@ -69,40 +69,34 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite seu nome"/>
+            android:hint="Digite seu nome"
+            android:id="@+id/edtNome"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite seu sobrenome"/>
+            android:hint="Digite seu sobrenome"
+            android:id="@+id/edtSobrenome"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite sua data de nascimento"
-            android:inputType="date"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite seu email"/>
+            android:hint="Digite seu email"
+            android:id="@+id/edtEmail"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite uma senha"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:id="@+id/edtSenha"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirme a sua senha"
-            android:inputType="textPassword"/>
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Possuo Bilhete Único"/>
+            android:inputType="textPassword"
+            android:id="@+id/edtConfirmaSenha"/>
 
         <Button
             android:layout_width="match_parent"

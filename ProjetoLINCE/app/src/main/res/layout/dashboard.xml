@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/back02"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Saldo: R$ 00"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:alpha="0.9"
+        android:padding="30dp"
+        android:id="@+id/saldo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Aproxime o smartphone no sensor"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:layout_below="@+id/saldo"
+        android:alpha="0.8"/>
+
+    <ImageView
+        android:id="@+id/bilhete"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/bilhete" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Carregar Bilhete"
+        android:onClick="carregarBilhete"
+        />
+
+    <ImageView
+        android:layout_width="142dp"
+        android:layout_height="244dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/nameUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="10dp"
+        android:text="Braufagélio Junior"
+        android:textColor="#FFF"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="exit"
+        android:src="@drawable/off"
+        android:textAlignment="center" />
+</LinearLayout>

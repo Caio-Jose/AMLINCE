@@ -22,14 +22,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/digite_o_usuario"/>
+            android:hint="@string/digite_o_usuario"
+            android:id="@+id/usuario"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/digite_a_senha"
             android:inputType="textPassword"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:id="@+id/senha"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login"
-            android:onClick="telaPrincipal"/>
+            android:onClick="login"/>
 
     </LinearLayout>
 

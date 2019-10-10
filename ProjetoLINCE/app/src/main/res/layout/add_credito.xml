@@ -4,21 +4,10 @@
     android:background="@drawable/back02"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Informe a quantia de crédito para adicionar"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:inputType="number"
-        android:layout_marginTop="20dp"
-        android:id="@+id/qtdeCredito"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Forma de pagamento"
-        android:layout_below="@+id/qtdeCredito"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -172,11 +161,21 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="Efetuar Pagamento"
-        android:layout_below="@+id/cdSeguranca"
+        android:layout_below="@+id/qtdeCredito"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:onClick="efetuarPagamento"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantia de crédito para carregar"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/cdSeguranca"
+        android:layout_marginTop="20dp"
+        android:id="@+id/qtdeCredito"/>
 
 </RelativeLayout>
