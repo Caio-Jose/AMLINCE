@@ -28,17 +28,21 @@ public class Cadastrar extends AppCompatActivity {
     }
 
     public void cadastro(View view) {
-        if(edtSenha.getText().toString() != edtConfirmaSenha.getText().toString()){
+        String senha = edtSenha.getText().toString();
+        String confirmaSenha = edtConfirmaSenha.getText().toString();
+        if(!senha.equals(confirmaSenha)){
             Toast.makeText(this, "A senha e a confirmação da senhão não batem!", Toast.LENGTH_SHORT).show();
             finish();
+        }else {
+            Intent it = new Intent(this, MainActivity.class);
+            Usuario usuario = new Usuario();
+            usuario.setNome(edtNome.getText().toString() + " " + edtSobrenome.getText().toString());
+            usuario.setSenha(edtSenha.getText().toString());
+            usuario.setEmail(edtEmail.getText().toString());
+            usuario.setAdmin(false);
+            usuarioDB.inserir(usuario);
+            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+            startActivity(it);
         }
-        Intent it = new Intent(this, MainActivity.class);
-        Usuario usuario = new Usuario();
-        usuario.setNome(edtNome.getText().toString() + " " + edtSobrenome.getText().toString());
-        usuario.setSenha(edtSenha.getText().toString());
-        usuario.setEmail(edtEmail.getText().toString());
-        usuarioDB.inserir(usuario);
-        Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-        startActivity(it);
     }
 }

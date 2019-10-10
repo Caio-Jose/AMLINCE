@@ -23,7 +23,7 @@ public class TelaPrincipal extends AppCompatActivity {
             startActivity(it);
         }else{
             usuario = (Usuario)extras.get("usuario");
-            if ( usuario != null ) {
+            if ( usuario!= null ) {
                 edtNameUser.setText( usuario.getNome() );
             }
         }

@@ -47,7 +47,6 @@ public class UsuarioDB extends SQLiteOpenHelper {
         cv.put("nome", usuario.getNome());
         cv.put("email",usuario.getEmail());
         cv.put("senha",usuario.getSenha());
-        cv.put("bilheteId",usuario.getBilhete().getId());
         cv.put("admin", usuario.getAdmin()==true ? 1 : 0);
         db.insert(TB_USUARIO, null, cv);
     }
@@ -105,7 +104,6 @@ public class UsuarioDB extends SQLiteOpenHelper {
                 usuario.setNome( cursor.getString( 1 ));
                 usuario.setEmail( cursor.getString( 2 ));
                 usuario.setSenha(cursor.getString(3));
-                usuario.setBilhete(bilheteDB.buscar( cursor.getInt( 4 )));
                 usuario.setAdmin(cursor.getInt(5)==1 ? true : false);
                 usuarios.add( usuario );
             } while( cursor.moveToNext() );
@@ -114,15 +112,16 @@ public class UsuarioDB extends SQLiteOpenHelper {
         return usuarios;
     }
 
-    public Usuario findByUsuarioSenha(String username, String senha) {
+    public Usuario findByUsuarioSenha(String email, String senha) {
 
-        String sql = "SELECT * FROM " + TB_USUARIO + " WHERE id = ?";
-        String[] selectionArgs = new String[] { "" + username, "" + senha };
+        String sql = "SELECT * FROM " + TB_USUARIO + " WHERE email = ?";
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TB_USUARIO,
                 new String[] {"id", "nome", "email","senha","bilheteId","admin"},
-                null,
+                selection,
                 selectionArgs,
                 null,
                 null,
@@ -136,7 +135,6 @@ public class UsuarioDB extends SQLiteOpenHelper {
             usuario.setNome( cursor.getString( 1 ));
             usuario.setEmail( cursor.getString( 2 ));
             usuario.setSenha(cursor.getString(3));
-            usuario.setBilhete(bilheteDB.buscar( cursor.getInt( 4 )));
             usuario.setAdmin(cursor.getInt(5)==1 ? true : false);
             return usuario;
         } while( cursor.moveToNext() );
