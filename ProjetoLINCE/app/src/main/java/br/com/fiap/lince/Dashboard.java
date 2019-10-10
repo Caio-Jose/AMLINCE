@@ -57,4 +57,9 @@ public class Dashboard extends AppCompatActivity {
         Intent it = new Intent(this, AddCredito.class);
         startActivity(it);
     }
+
+    public void compraPassagem(View view) {
+        Intent it = new Intent(this, ComprarPassagem.class);
+        startActivity(it);
+    }
 }
