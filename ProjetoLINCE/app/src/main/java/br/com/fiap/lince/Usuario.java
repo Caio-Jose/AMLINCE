@@ -12,36 +12,33 @@ public class Usuario implements Serializable {
 
     private String senha;
 
-    private Bilhete bilhete;
-
-    private Boolean Admin;
+    private Double saldo;
 
     public Usuario() {
     }
 
-    public Bilhete getBilhete() {
-        return bilhete;
-    }
-
-    public void setBilhete(Bilhete bilhete) {
-        this.bilhete = bilhete;
-    }
-
-    public Usuario(String nome, String email, String senha, Bilhete bilhete, Boolean admin) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.bilhete = bilhete;
-        Admin = admin;
-    }
-
-    public Usuario(int id, String nome, String email, String senha, Bilhete bilhete, Boolean admin) {
+    public Usuario(int id, String nome, String email, String senha, Double saldo) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.bilhete = bilhete;
-        Admin = admin;
+        this.saldo = saldo;
+    }
+
+    public Usuario(String nome, String email, String senha, Double saldo) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.saldo = saldo;
+
+    }
+
+    public Double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
     }
 
     public int getId() {
@@ -76,11 +73,4 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Boolean getAdmin() {
-        return Admin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        Admin = admin;
-    }
 }

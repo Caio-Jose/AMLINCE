@@ -19,7 +19,7 @@ public class UsuarioDB extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "UsuarioDB";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
     public static final String TB_USUARIO    = "usuario";
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -28,16 +28,18 @@ public class UsuarioDB extends SQLiteOpenHelper {
                 "nome TEXT NOT NULL," +
                 "email Text NOT NULL UNIQUE," +
                 "senha TEXT NOT NULL," +
-                "bilheteId INTEGER," +
-                "admin INTEGER NOT NULL" +
+                "saldo DOUBLE" +
                 ")";
 
         db.execSQL(sql);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older books table if existed
+        db.execSQL("DROP TABLE IF EXISTS usuario");
 
+        // create fresh books table
+        this.onCreate(db);
     }
 
     public void inserir(Usuario usuario) {
@@ -47,7 +49,7 @@ public class UsuarioDB extends SQLiteOpenHelper {
         cv.put("nome", usuario.getNome());
         cv.put("email",usuario.getEmail());
         cv.put("senha",usuario.getSenha());
-        cv.put("admin", usuario.getAdmin()==true ? 1 : 0);
+        cv.put("saldo", usuario.getSaldo());
         db.insert(TB_USUARIO, null, cv);
     }
 
@@ -68,8 +70,8 @@ public class UsuarioDB extends SQLiteOpenHelper {
         cv.put("nome", usuario.getNome());
         cv.put("email",usuario.getEmail());
         cv.put("senha",usuario.getSenha());
-        cv.put("bilheteId",usuario.getBilhete().getId());
-        cv.put("admin", usuario.getAdmin()==true ? 1 : 0);
+        cv.put("saldo", usuario.getSaldo());
+
 
         db.update(
                 TB_USUARIO,
@@ -86,7 +88,7 @@ public class UsuarioDB extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(
                 TB_USUARIO,
-                new String[] {"id", "nome", "email","senha","bilheteId","admin"},
+                new String[] {"id", "nome", "email","senha","saldo"},
                 null,
                 null,
                 null,
@@ -104,7 +106,7 @@ public class UsuarioDB extends SQLiteOpenHelper {
                 usuario.setNome( cursor.getString( 1 ));
                 usuario.setEmail( cursor.getString( 2 ));
                 usuario.setSenha(cursor.getString(3));
-                usuario.setAdmin(cursor.getInt(5)==1 ? true : false);
+                usuario.setSaldo(cursor.getDouble(4));
                 usuarios.add( usuario );
             } while( cursor.moveToNext() );
         }
@@ -120,7 +122,7 @@ public class UsuarioDB extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TB_USUARIO,
-                new String[] {"id", "nome", "email","senha","bilheteId","admin"},
+                new String[] {"id", "nome", "email","senha","saldo"},
                 selection,
                 selectionArgs,
                 null,
@@ -129,15 +131,18 @@ public class UsuarioDB extends SQLiteOpenHelper {
         );
         cursor.moveToFirst();
         Usuario usuario = new Usuario();
-
-        do {
-            usuario.setId( cursor.getInt( 0 )  );
-            usuario.setNome( cursor.getString( 1 ));
-            usuario.setEmail( cursor.getString( 2 ));
-            usuario.setSenha(cursor.getString(3));
-            usuario.setAdmin(cursor.getInt(5)==1 ? true : false);
-            return usuario;
-        } while( cursor.moveToNext() );
-
+        try {
+            do {
+                usuario.setId(cursor.getInt(0));
+                usuario.setNome(cursor.getString(1));
+                usuario.setEmail(cursor.getString(2));
+                usuario.setSenha(cursor.getString(3));
+                usuario.setSaldo(cursor.getDouble(4));
+                return usuario;
+            } while (cursor.moveToNext());
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

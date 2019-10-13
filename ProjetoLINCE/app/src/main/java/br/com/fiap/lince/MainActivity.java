@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,12 +50,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void login(View view) {
-        Intent it = new Intent(this, TelaPrincipal.class);
+
+
         String senha = edtSenha.getText().toString();
         String email = edtEmail.getText().toString();
-        Usuario usuario = usuarioDB.findByUsuarioSenha(email,senha);
-        it.putExtra("usuario", usuario);
-        startActivity(it);
-
+        if(senha.isEmpty() || email.isEmpty()){
+            Toast.makeText(this, "Digite todos os campos", Toast.LENGTH_SHORT).show();
+        }else {
+            Usuario usuario = usuarioDB.findByUsuarioSenha(email, senha);
+            if(usuario ==null){
+                Toast.makeText(this, "Usuário não existente ", Toast.LENGTH_SHORT).show();
+            }else {
+                Intent it = new Intent(this, TelaPrincipal.class);
+                it.putExtra("usuario", usuario);
+                startActivity(it);
+            }
+        }
     }
 }

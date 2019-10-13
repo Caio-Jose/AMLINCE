@@ -75,12 +75,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite seu sobrenome"
-            android:id="@+id/edtSobrenome"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="Digite seu email"
             android:id="@+id/edtEmail"/>
 
@@ -102,6 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cadastrar"
+            android:id="@+id/btnCadastrar"
             android:onClick="cadastro"/>
 
     </LinearLayout>

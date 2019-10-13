@@ -70,11 +70,11 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/off"
+        android:src="@drawable/engine"
         android:layout_toRightOf="@+id/nameUser"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
-        android:onClick="sair"
+        android:onClick="menuOpcoes"
         android:layout_marginBottom="12dp"/>
 
 </RelativeLayout>
