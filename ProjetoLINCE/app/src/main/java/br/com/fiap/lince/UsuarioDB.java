@@ -11,8 +11,6 @@ import java.util.List;
 
 public class UsuarioDB extends SQLiteOpenHelper {
 
-    BilheteDB bilheteDB;
-
     public UsuarioDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
