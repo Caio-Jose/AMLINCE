@@ -66,4 +66,10 @@ public class menu_opcoes extends AppCompatActivity{
         it.putExtra("usuario",usuario);
         startActivity(it);
     }
+
+    public void listarCompra(View view) {
+        Intent it = new Intent( getApplicationContext(),ListarCompras.class);
+        it.putExtra("usuario",usuario);
+        startActivity(it);
+    }
 }

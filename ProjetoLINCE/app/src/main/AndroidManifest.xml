@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListarCompras" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".menu_opcoes" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".MainActivity"

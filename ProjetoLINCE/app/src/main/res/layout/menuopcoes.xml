@@ -13,7 +13,8 @@
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:textAlignment="center"
-            android:text="Visualizar Histórico Compras de Credito"/>
+            android:text="Visualizar Histórico Compras de Credito"
+            android:onClick="listarCompra"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

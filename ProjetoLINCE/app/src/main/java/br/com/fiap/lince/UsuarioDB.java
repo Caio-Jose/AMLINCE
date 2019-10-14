@@ -114,7 +114,6 @@ public class UsuarioDB extends SQLiteOpenHelper {
 
     public Usuario findByUsuarioSenha(String email, String senha) {
 
-        String sql = "SELECT * FROM " + TB_USUARIO + " WHERE email = ?";
         String selection = "email = ?";
         String[] selectionArgs = {email};
         SQLiteDatabase db = getReadableDatabase();

@@ -85,10 +85,8 @@ public class CompraDB extends SQLiteOpenHelper {
     public List<Compra> listarCompras(int id) {
         List<Compra> compras = new ArrayList<>();
 
-        String sql = "SELECT * FROM " + TB_COMPRA + " WHERE idUsuario = ?";
         String selection = "idUsuario = ?";
         String[] selectionArgs = {Integer.toString(id)};
-
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.query(

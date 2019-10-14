@@ -14,7 +14,6 @@ public class TelaPrincipal extends AppCompatActivity {
     TextView txvNameUser;
     TextView txvSaldo;
     UsuarioDB usuarioDB;
-    Double creditado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
