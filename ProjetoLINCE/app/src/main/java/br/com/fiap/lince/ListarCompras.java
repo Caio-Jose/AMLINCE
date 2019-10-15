@@ -11,7 +11,6 @@ import java.util.List;
 public class ListarCompras extends AppCompatActivity {
 
     ListView lstCompras;
-    Compra[] compras;
     List<Compra> compraList;
     CompraDB compraDB;
     Usuario usuario;
@@ -20,6 +19,7 @@ public class ListarCompras extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.compras);
 
+        lstCompras = findViewById(R.id.lstCompras);
         compraDB = new CompraDB(this);
 
         Bundle extras = getIntent().getExtras();
@@ -30,14 +30,15 @@ public class ListarCompras extends AppCompatActivity {
         }else{
             usuario = (Usuario)extras.get("usuario");
             if ( usuario!= null ) {
+
                 compraList = compraDB.listarCompras(usuario.getId());
-                compras = compraList.toArray(new Compra[compraList.size()]);
+                Compra[] compras = compraList.toArray(new Compra[compraList.size()]);
+                CompraAdapter adapter = new CompraAdapter(this, compras);
+                lstCompras.setAdapter(adapter);
             }
         }
 
-        lstCompras = findViewById(R.id.lstCompras);
-        CompraAdapter adapter = new CompraAdapter(this, compras);
-        lstCompras.setAdapter(adapter);
+
 
 
     }
