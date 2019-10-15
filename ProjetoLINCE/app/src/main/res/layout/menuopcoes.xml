@@ -13,13 +13,13 @@
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:textAlignment="center"
-            android:text="Visualizar Histórico Compras de Credito"
+            android:text="@string/visualizar_hist_rico_compras_de_credito"
             android:onClick="listarCompra"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="atualizarUsuario"
-            android:text="Atualizar cadastro"
+            android:text="@string/atualizar_cadastro"
             android:textAlignment="center"/>
     </LinearLayout>
 
@@ -32,13 +32,13 @@
         <Button
             android:layout_width="190dp"
             android:layout_height="match_parent"
-            android:text="Apagar Usuário"
+            android:text="@string/apagar_usu_rio"
             android:onClick="apagarUsuario"
             android:textAlignment="center"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Deslogar"
+            android:text="@string/deslogar"
             android:onClick="deslogar"
             android:textAlignment="center"
             />
@@ -47,6 +47,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voltar"
+        android:text="@string/apagar_historico_de_compras"
+        android:onClick="apagarHistorico"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/voltar"
         android:onClick="voltarATelaPrincipal"/>
 </LinearLayout>

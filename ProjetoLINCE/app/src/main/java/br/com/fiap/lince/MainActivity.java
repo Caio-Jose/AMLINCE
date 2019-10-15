@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Usuario usuario = usuarioDB.findByUsuarioSenha(email, senha);
             if(usuario ==null){
-                Toast.makeText(this, "Usuário não existente ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Usuário não existente ou dados informados estão incorretos ", Toast.LENGTH_SHORT).show();
             }else {
                 Intent it = new Intent(this, TelaPrincipal.class);
                 it.putExtra("usuario", usuario);

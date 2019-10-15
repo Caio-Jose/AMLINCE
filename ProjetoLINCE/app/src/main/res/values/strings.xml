@@ -4,4 +4,10 @@
     <string name="digite_a_senha">Digite a senha</string>
     <string name="login">Login</string>
     <string name="saldo">Saldo</string>
+    <string name="apagar_historico_de_compras">Apagar Historico de compras</string>
+    <string name="voltar">Voltar</string>
+    <string name="deslogar">Deslogar</string>
+    <string name="apagar_usu_rio">Apagar Usuário</string>
+    <string name="atualizar_cadastro">Atualizar cadastro</string>
+    <string name="visualizar_hist_rico_compras_de_credito">Visualizar Histórico Compras de Credito</string>
 </resources>

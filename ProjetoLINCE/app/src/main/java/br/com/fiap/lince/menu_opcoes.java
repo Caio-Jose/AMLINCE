@@ -11,12 +11,13 @@ import android.widget.Toast;
 public class menu_opcoes extends AppCompatActivity{
     Usuario usuario;
     UsuarioDB usuarioDB;
+    CompraDB compraDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menuopcoes);
         usuarioDB = new UsuarioDB(this);
-
+        compraDB = new CompraDB(this);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -71,5 +72,25 @@ public class menu_opcoes extends AppCompatActivity{
         Intent it = new Intent( getApplicationContext(),ListarCompras.class);
         it.putExtra("usuario",usuario);
         startActivity(it);
+        //não consegui fazer ele lista sempre retornava nulo na hora de listar por usuário , mas a ideia seria trazer as compras que o usuário vez relacionadas ao crédito dele
+    }
+
+    public void apagarHistorico(View view) {
+        new AlertDialog.Builder(this)
+                .setTitle("Apagar Usuario")
+                .setMessage("Deseja realmente apagar este o histórico deste usuário?")
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        compraDB.excluir(usuario.getId());
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

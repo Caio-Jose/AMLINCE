@@ -13,15 +13,16 @@ import java.util.List;
 
 public class CompraDB extends SQLiteOpenHelper {
 
+    public CompraDB(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
 
     public static final String DATABASE_NAME = "CompraDB";
     public static final int DATABASE_VERSION = 1;
     public static final String TB_COMPRA    = "compra";
 
 
-    public CompraDB(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -60,7 +61,7 @@ public class CompraDB extends SQLiteOpenHelper {
 
         db.delete(
                 TB_COMPRA,
-                "id = ?",
+                "idUsuario = ?",
                 new String[]{  String.valueOf(id) }
         );
     }
@@ -84,14 +85,16 @@ public class CompraDB extends SQLiteOpenHelper {
 
     public List<Compra> listarCompras(int usuarioId) {
         List<Compra> compras = new ArrayList<>();
-
-        String selection = "idUsuario = ?";
-        String[] selectionArgs = {Integer.toString(usuarioId)};
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT * FROM "+TB_COMPRA+" WHERE idUsuario = ?";
-
-
-        Cursor cursor = db.rawQuery(query,selectionArgs);
+        Cursor cursor = db.query(
+                TB_COMPRA,
+                new String[] {"id", "idUsuario", "dataCompra","valor"},
+                "idUsuario = ?",
+                new String[]{"1"},
+                null,
+                null,
+                "id"
+        );
 
 
         cursor.moveToFirst();
