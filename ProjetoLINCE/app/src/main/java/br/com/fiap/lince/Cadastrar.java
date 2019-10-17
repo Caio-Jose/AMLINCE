@@ -48,28 +48,32 @@ public class Cadastrar extends AppCompatActivity {
 
         if(!senha.equals(confirmaSenha)){
             Toast.makeText(this, "A senha e a confirmação da senhão não batem!", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-        if(atualizarusuario !=null){
-            Intent it = new Intent(this, TelaPrincipal.class);
+        }else {
+            if (atualizarusuario != null) {
+                Intent it = new Intent(this, TelaPrincipal.class);
 
-            atualizarusuario.setSenha(edtSenha.getText().toString());
-            atualizarusuario.setEmail(edtEmail.getText().toString());
-            atualizarusuario.setNome(edtNome.getText().toString());
-            usuarioDB.atualizar(atualizarusuario);
-            Toast.makeText(this, "Usuário Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
-            it.putExtra("usuario",atualizarusuario);
-            startActivity(it);
+                atualizarusuario.setSenha(edtSenha.getText().toString());
+                atualizarusuario.setEmail(edtEmail.getText().toString());
+                atualizarusuario.setNome(edtNome.getText().toString());
+                usuarioDB.atualizar(atualizarusuario);
+                Toast.makeText(this, "Usuário Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
+                it.putExtra("usuario", atualizarusuario);
+                startActivity(it);
 
-        } else {
-            Intent it = new Intent(this, MainActivity.class);
-            Usuario usuario = new Usuario();
-            usuario.setNome(edtNome.getText().toString());
-            usuario.setSenha(edtSenha.getText().toString());
-            usuario.setEmail(edtEmail.getText().toString());
-            usuarioDB.inserir(usuario);
-            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-            startActivity(it);
+            } else {
+                if(usuarioDB.findByEmail(edtEmail.getText().toString())==null) {
+                    Intent it = new Intent(this, MainActivity.class);
+                    Usuario usuario = new Usuario();
+                    usuario.setNome(edtNome.getText().toString());
+                    usuario.setSenha(edtSenha.getText().toString());
+                    usuario.setEmail(edtEmail.getText().toString());
+                    usuarioDB.inserir(usuario);
+                    Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                    startActivity(it);
+                }else{
+                    Toast.makeText(this, "Já existe usuário cadastrado com esse email!", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 }

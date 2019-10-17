@@ -37,10 +37,6 @@ public class ListarCompras extends AppCompatActivity {
                 lstCompras.setAdapter(adapter);
             }
         }
-
-
-
-
     }
 
 

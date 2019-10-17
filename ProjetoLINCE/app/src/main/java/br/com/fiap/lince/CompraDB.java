@@ -49,7 +49,7 @@ public class CompraDB extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put("idUsuario", compra.getId());
+        cv.put("idUsuario", compra.getIdUsuario());
         cv.put("dataCompra", compra.getDataCompra());
         cv.put("valor",compra.getValor());
 
@@ -85,19 +85,19 @@ public class CompraDB extends SQLiteOpenHelper {
 
     public List<Compra> listarCompras(int usuarioId) {
         List<Compra> compras = new ArrayList<>();
+        String id = String.valueOf( usuarioId);
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TB_COMPRA,
                 new String[] {"id", "idUsuario", "dataCompra","valor"},
                 "idUsuario = ?",
-                new String[]{"1"},
+                new String[]{id},
                 null,
                 null,
                 "id"
         );
 
 
-        cursor.moveToFirst();
 
         try{
             if ( cursor.moveToFirst() ) {

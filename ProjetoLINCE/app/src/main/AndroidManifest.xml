@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ListarCompras" android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".menu_opcoes" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".MenuOpcoes" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

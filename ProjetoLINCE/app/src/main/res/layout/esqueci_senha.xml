@@ -23,6 +23,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/emailTrocar"
             android:hint="Digite seu email cadastrado"/>
 
         <Button

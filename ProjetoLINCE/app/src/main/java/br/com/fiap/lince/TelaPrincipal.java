@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +44,7 @@ public class TelaPrincipal extends AppCompatActivity {
     }
 
     public void menuOpcoes(View view) {
-        Intent it = new Intent(this, menu_opcoes.class);
+        Intent it = new Intent(this, MenuOpcoes.class);
         it.putExtra("usuario",usuario);
         startActivity(it);
     }

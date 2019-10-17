@@ -142,4 +142,35 @@ public class UsuarioDB extends SQLiteOpenHelper {
             return null;
         }
     }
+
+    public Usuario findByEmail(String email) {
+
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(
+                TB_USUARIO,
+                new String[] {"id", "nome", "email","senha","saldo"},
+                selection,
+                selectionArgs,
+                null,
+                null,
+                "nome"
+        );
+        cursor.moveToFirst();
+        Usuario usuario = new Usuario();
+        try {
+            do {
+                usuario.setId(cursor.getInt(0));
+                usuario.setNome(cursor.getString(1));
+                usuario.setEmail(cursor.getString(2));
+                usuario.setSenha(cursor.getString(3));
+                usuario.setSaldo(cursor.getDouble(4));
+                return usuario;
+            } while (cursor.moveToNext());
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
